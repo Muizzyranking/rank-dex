@@ -42,8 +42,8 @@
 
 ;; Ensure token order is consistent for pool IDs
 (define-private (order-tokens (token-a principal) (token-b principal))
-  ;; Compare the string representation of the principals instead of using contract-of
-  (if (string< (to-ascii token-a) (to-ascii token-b))
+  ;; Compare the principals directly
+  (if (< token-a token-b)
     { token-x: token-a, token-y: token-b }
     { token-x: token-b, token-y: token-a }
   )
